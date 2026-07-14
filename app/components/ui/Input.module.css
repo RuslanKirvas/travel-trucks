@@ -1,0 +1,33 @@
+.inputField {
+  min-width: 312px;
+  height: 56px;
+  padding: 18px 20px;
+  /* border: 1px solid #d1d5db; */
+  border-radius: 12px;
+  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); */
+  transition: all 0.2s ease;
+  color: var(--color-text-heading);
+  font-weight: var(--font-weight-regular);
+  font-size: 16px;
+  line-height: 1.5;
+  border: none;
+}
+
+.inputField:focus {
+  /* outline: none; */
+  ring: 2px solid #3b82f6;
+  border-color: #3b82f6;
+}
+
+.inputField:focus-visible {
+  /* outline: none; */
+  cursor: pointer;
+}
+
+.inputField.error {
+  border-color: #ef4444;
+}
+
+.inputField.withIcon {
+  padding-left: 48px;
+}

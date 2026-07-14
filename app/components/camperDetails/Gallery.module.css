@@ -1,0 +1,115 @@
+/* components/camperDetails/Gallery.module.css */
+
+/* ===== ОБГОРТКА ВСІЄЇ ГАЛЕРЕЇ ===== */
+.galleryWrapper {
+  width: 100%;
+  max-width: 638px;
+  margin-bottom: 88px;
+}
+
+/* ===== ГОЛОВНИЙ СЛАЙДЕР ===== */
+.mainSwiper {
+  width: 100%;
+  border-radius: 17px;
+  overflow: hidden;
+  background-color: var(--color-background-light);
+  margin-bottom: 27px;
+}
+
+.slideImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* ← ЯК НА МАКЕТІ */
+  background-color: var(--color-background-light);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== СТРІЛКИ ===== */
+.mainSwiper :global(.swiper-button-next),
+.mainSwiper :global(.swiper-button-prev) {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.mainSwiper :global(.swiper-button-next):hover,
+.mainSwiper :global(.swiper-button-prev):hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.mainSwiper :global(.swiper-button-next::after),
+.mainSwiper :global(.swiper-button-prev::after) {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mainSwiper :global(.swiper-pagination-bullet) {
+  background-color: white;
+  opacity: 0.6;
+}
+
+.mainSwiper :global(.swiper-pagination-bullet-active) {
+  opacity: 1;
+  background-color: var(--color-primary);
+}
+
+/* ===== МІНІАТЮРИ ===== */
+.thumbsSwiper {
+  width: 100%;
+
+  overflow: hidden;
+}
+
+.thumbsSwiper :global(.swiper-slide) {
+  width: 136px !important; /* ← ШИРИНА МІНІАТЮРИ З МАКЕТУ */
+  height: 144px; /* ← ВИСОТА МІНІАТЮРИ З МАКЕТУ */
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.thumbImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-background-light);
+}
+
+.thumbImage:hover {
+  border-color: var(--color-primary);
+}
+
+.thumbsSwiper :global(.swiper-slide-thumb-active) {
+  border-color: var(--color-primary);
+}
+
+.thumb {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* ===== ЗАГЛУШКА ===== */
+.placeholder {
+  width: 100%;
+  height: 400px;
+  background-color: var(--color-background-light);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-size: 16px;
+}
