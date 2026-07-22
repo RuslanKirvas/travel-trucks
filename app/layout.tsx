@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Providers from "./providers";
+import { Toaster } from "react-hot-toast";
+import Header from "@/app/components/layout/Header";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +25,12 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body>
         {/* ⬇️ Ось тут підключаємо всі провайдери */}
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );

@@ -1,0 +1,100 @@
+.starEmpty {
+  color: var(--color-border); /* Сірий (#DADDE1) */
+}
+
+.comment {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* ===== ЗАГОЛОВОК ===== */
+.title {
+  font-size: 24px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-heading);
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+/* ===== ЗАГЛУШКА ===== */
+.empty {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* ===== СПИСОК ВІДГУКІВ ===== */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===== КОЖЕН ВІДГУК — СВІЙ СІРИЙ БЛОК ===== */
+.reviewItem {
+  padding: 16px;
+  background-color: var(--color-background-light); /* ← СІРИЙ ФОН */
+  border-radius: 16px;
+}
+
+/* ===== АВАТАР ===== */
+.reviewer {
+  display: flex;
+
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--background);
+  color: var(--color-primary);
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  flex-shrink: 0;
+  margin-bottom: 16px;
+}
+
+.name {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-heading);
+}
+
+/* ===== ЗІРКИ ===== */
+.rating {
+  display: flex;
+  gap: 4px;
+
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.starFilled {
+  color: var(--color-rating);
+}
+
+.starEmpty {
+  color: var(--color-border);
+}
+
+/* ===== ТЕКСТ ВІДГУКУ ===== */
+.comment {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  margin: 0;
+}

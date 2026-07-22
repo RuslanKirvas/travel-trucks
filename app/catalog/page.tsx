@@ -1,11 +1,9 @@
-// app/catalog/page.tsx
 "use client";
 
 import { useCampers } from "@/app/hooks/useCampers";
-import FilterPanel from "@/app/components/catalog/FilterPanel";
 import CamperCard from "@/app/components/catalog/CamperCard";
-// import LoadMoreButton from "@/app/components/catalog/LoadMoreButton";
-import styles from "./page.module.css"; // ← стилі для сторінки
+import FilterPanel from "@/app/components/catalog/FilterPanel";
+import styles from "./page.module.css";
 
 export default function CatalogPage() {
   const {
@@ -19,29 +17,43 @@ export default function CatalogPage() {
 
   const allCampers = data?.pages.flatMap((page) => page.campers) || [];
 
-  if (isLoading) return <div>Завантаження...</div>;
-  if (isError) return <div>Помилка завантаження даних</div>;
+  if (isLoading) return <div className={styles.loader}>Loading...</div>;
+  if (isError) return <div className={styles.error}>Error loading data</div>;
 
   return (
-    <div className={styles.catalogContainer}>
-      {/* Ліва частина: фільтри */}
-      <aside className={styles.sidebar}>
-        <FilterPanel />
-      </aside>
+    <div className="container">
+      <div className={styles.catalogContainer}>
+        <aside className={styles.sidebar}>
+          <FilterPanel />
+        </aside>
 
-      {/* Права частина: картки */}
-      <main className={styles.content}>
-        <div className={styles.cards}>
-          {allCampers.map((camper) => (
-            <CamperCard key={camper.id} camper={camper} />
-          ))}
-        </div>
-        {/* <LoadMoreButton
-          onClick={fetchNextPage}
-          hasNextPage={hasNextPage}
-          isFetching={isFetchingNextPage}
-        /> */}
-      </main>
+        <main className={styles.content}>
+          <div className={styles.cards}>
+            {allCampers.map((camper) => (
+              <CamperCard key={camper.id} camper={camper} />
+            ))}
+          </div>
+
+          {/* ===== КНОПКА "LOAD MORE" ===== */}
+          {hasNextPage && (
+            <div className={styles.loadMoreWrapper}>
+              <button
+                className={styles.loadMoreButton}
+                onClick={() => fetchNextPage()}
+                disabled={isFetchingNextPage}
+              >
+                {isFetchingNextPage ? (
+                  <span className={styles.spinner}></span>
+                ) : (
+                  "Load More"
+                )}
+
+                {/* {isFetchingNextPage ? "Loading..." : "Load More"} */}
+              </button>
+            </div>
+          )}
+        </main>
+      </div>
     </div>
   );
 }

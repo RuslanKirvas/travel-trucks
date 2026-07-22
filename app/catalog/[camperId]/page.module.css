@@ -1,5 +1,19 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 48px 20px;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* ← ДВІ РІВНІ КОЛОНКИ */
+  gap: 40px; /* ← ВІДСТУП МІЖ КОЛОНКАМИ */
+}
+
+/* Ліва колонка */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* ← ВІДСТУП МІЖ ГАЛЕРЕЄЮ І ВІДГУКАМИ */
+}
+
+/* Права колонка */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* ← ВІДСТУП МІЖ КОМПОНЕНТАМИ */
 }

@@ -28,6 +28,12 @@ export interface Camper {
   coverImage: string;
   totalReviews: number;
 
+  reviews: {
+    reviewer_name: string;
+    reviewer_rating: number;
+    comment: string;
+  }[];
+
   gallery: {
     id: string;
     camperId: string;
@@ -37,15 +43,15 @@ export interface Camper {
   }[];
 }
 export type Amenity =
-  | "Automatic"
-  | "Ac"
-  | "Petrol"
-  | "Kitchen"
-  | "Radio"
-  | "Alcove"
-  | "Bathroom"
-  | "Tv"
-  | "Refrigerator"
-  | "Microwave"
-  | "Gas"
-  | "Water";
+  | "automatic"
+  | "ac"
+  | "petrol"
+  | "kitchen"
+  | "radio"
+  | "alcove"
+  | "bathroom"
+  | "tv"
+  | "refrigerator"
+  | "microwave"
+  | "gas"
+  | "water";

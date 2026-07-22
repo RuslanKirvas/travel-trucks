@@ -1,4 +1,3 @@
-// components/camperDetails/VehicleDetails.tsx
 "use client";
 
 import { Camper } from "@/app/types/camper";
@@ -9,7 +8,53 @@ interface VehicleDetailsProps {
 }
 
 export default function VehicleDetails({ camper }: VehicleDetailsProps) {
-  // Список характеристик для таблиці
+  // 1️⃣ Мапа відповідності
+  const amenityMap: Record<string, string> = {
+    automatic: "Automatic",
+    ac: "AC",
+    petrol: "Petrol",
+    kitchen: "Kitchen",
+    radio: "Radio",
+    alcove: "Alcove",
+  };
+
+  // 2️⃣ Порядок (як на макеті)
+  const order = ["automatic", "ac", "petrol", "kitchen", "radio", "alcove"];
+
+  // 3️⃣ Формуємо список (двигун + трансмісія + аменітіс)
+  const baseAmenities = [
+    "alcove",
+    "petrol",
+    camper.engine, // "diesel", "petrol", "hybrid", "electric"
+    camper.transmission, // "automatic", "manual"
+  ];
+
+  const allAmenities = [...baseAmenities, ...camper.amenities];
+
+  // 4️⃣ Сортуємо за порядком з макету
+  const sortedAmenities: string[] = [];
+  for (const key of order) {
+    const found = allAmenities.some(
+      (item) => item.toLowerCase() === key.toLowerCase(),
+    );
+    if (found) {
+      sortedAmenities.push(amenityMap[key]);
+    }
+  }
+
+  // 5️⃣ Додаємо ті, що не ввійшли в порядок (якщо є)
+  for (const item of allAmenities) {
+    const isInOrder = order.some(
+      (key) => key.toLowerCase() === item.toLowerCase(),
+    );
+    if (!isInOrder) {
+      const label = amenityMap[item.toLowerCase()];
+      if (label && !sortedAmenities.includes(label)) {
+        sortedAmenities.push(label);
+      }
+    }
+  }
+
   const details = [
     { label: "Form", value: camper.form },
     { label: "Length", value: camper.length },
@@ -22,10 +67,10 @@ export default function VehicleDetails({ camper }: VehicleDetailsProps) {
   return (
     <div className={styles.vehicleDetails}>
       <h3 className={styles.title}>Vehicle details</h3>
-      {/* Зручності (amenities) */}
+
       <div className={styles.amenities}>
         <div className={styles.tags}>
-          {camper.amenities?.map((item) => (
+          {sortedAmenities.map((item) => (
             <span key={item} className={styles.tag}>
               {item}
             </span>
@@ -33,7 +78,8 @@ export default function VehicleDetails({ camper }: VehicleDetailsProps) {
         </div>
       </div>
 
-      {/* Таблиця характеристик */}
+      <hr className={styles.border} />
+
       <div className={styles.detailsGrid}>
         {details.map(({ label, value }) => (
           <div key={label} className={styles.detailRow}>

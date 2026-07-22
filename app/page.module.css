@@ -1,0 +1,50 @@
+.hero {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  min-height: 100vh;
+  background-image: url("/images/TravelBild.webp");
+  background-size: cover;
+  background-position: center;
+  /* padding: 20px; */
+}
+
+.container {
+  min-width: 100%;
+  margin-left: 64px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 0.67;
+  color: var(--color-background-light);
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-weight: var(--font-weight-semibold);
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--color-background-light);
+  margin-bottom: 40px;
+}
+
+.button {
+  display: inline-block;
+  padding: 16px 48px;
+  font-weight: var(--font-weight-medium);
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  border-radius: 200px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #5a6a64;
+}

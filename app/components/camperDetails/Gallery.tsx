@@ -19,6 +19,7 @@ interface GalleryProps {
     camperId: string;
     thumb: string;
     original: string;
+
     order: number;
   }[];
   name: string;
@@ -60,6 +61,7 @@ export default function Gallery({ images, name }: GalleryProps) {
                 alt={`${name} - фото ${index + 1}`}
                 width={800}
                 height={400}
+                loading="eager"
                 className={styles.image}
               />
             </div>
@@ -74,7 +76,7 @@ export default function Gallery({ images, name }: GalleryProps) {
           watchSlidesProgress
           onSwiper={setThumbsSwiper}
           className={styles.thumbsSwiper}
-          spaceBetween={12}
+          spaceBetween={32}
           slidesPerView={4}
         >
           {validImages.map((src, index) => (

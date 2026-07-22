@@ -1,16 +1,20 @@
-import { fetchCampers } from "@/app/services/campers";
+"use client";
 
-export default async function HomePage() {
-  // Робимо запит до бекенду
-  const data = await fetchCampers({ page: 1, perPage: 5 });
+import Link from "next/link";
+import styles from "./page.module.css";
 
-  console.log("Отримано кемперів:", data.campers.length); // Виведе 5
-  console.log("Всього кемперів:", data.total); // Виведе 60
-
+export default function HomePage() {
   return (
-    <div>
-      <h1>Головна сторінка</h1>
-      <p>Кемперів на першій сторінці: {data.campers.length}</p>
+    <div className={styles.hero}>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Campers of your dreams</h1>
+        <p className={styles.subtitle}>
+          You can find everything you want in our catalog
+        </p>
+        <Link href="/catalog" className={styles.button}>
+          View Now
+        </Link>
+      </div>
     </div>
   );
 }

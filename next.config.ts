@@ -2,8 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig = {
   images: {
-    domains: ["ac.goit.global"], // ← Додай сюди твій домен
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ac.goit.global",
+      },
+    ],
   },
 };
-
-export default nextConfig;
+module.exports = nextConfig;
