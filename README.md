@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚐 TravelTrucks
 
-## Getting Started
+Оренда кемперів для подорожей Україною. Цей проєкт — це фронтенд частина вебзастосунку, створена з використанням **Next.js**, **TypeScript** та **TanStack Query**.
 
-First, run the development server:
+🔗 **Жива демонстрація:** [Посилання на Vercel]  
+📂 **Репозиторій:** [Посилання на GitHub]
+
+---
+
+## 📖 Опис проєкту
+
+TravelTrucks — це вебзастосунок для пошуку та бронювання кемперів. Користувачі можуть переглядати каталог, фільтрувати за різними параметрами, переглядати детальну інформацію про кемпер, читати відгуки та бронювати авто.
+
+---
+
+## ⚙️ Основні функції
+
+- 🔍 **Каталог кемперів** з пагінацією (Load More)
+- 🎯 **Фільтрація** за локацією, типом кузова, двигуном та трансмісією
+- 🖼️ **Галерея зображень** (Swiper) з мініатюрами
+- 📋 **Детальна інформація** про кемпер (характеристики, аменітіс)
+- ⭐ **Відгуки** з рейтингом у зірках
+- 📝 **Форма бронювання** з валідацією та сповіщеннями
+
+---
+
+## 🛠️ Технології
+
+- **Next.js 16** (App Router)
+- **TypeScript**
+- **TanStack Query** (кешування та пагінація)
+- **Swiper** (галерея)
+- **React Hook Form** + **Zod** (валідація форми)
+- **React Hot Toast** (сповіщення)
+- **CSS Modules** (стилізація)
+- **Tailwind CSS**
+
+---
+
+## 📂 Структура проєкту
+
+travel-trucks/
+├── app/
+│ ├── catalog/
+│ │ ├── page.tsx # Сторінка каталогу
+│ │ └── [camperId]/ # Динамічний маршрут деталей
+│ │ └── page.tsx
+│ ├── components/
+│ │ ├── ui/ # Базові компоненти (Button, Input, Checkbox)
+│ │ ├── icons/ # SVG іконки
+│ │ ├── layout/ # Глобальні компоненти (Header)
+│ │ ├── catalog/ # Компоненти каталогу
+│ │ └── camperDetails/ # Компоненти сторінки деталей
+│ ├── hooks/ # Кастомні хуки
+│ ├── services/ # Запити до API
+│ ├── types/ # TypeScript типи
+│ └── utils/ # Допоміжні функції
+├── public/
+│ └── images/ # Статичні зображення
+└── package.json
+
+---
+
+## 🚀 Встановлення та запуск
+
+### 1. Клонування репозиторію
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/RuslanKirvas/travel-trucks.git
+cd travel-trucks
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Встановлення залежностей
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Запуск у режимі розробки
+   npm run dev
+   Відкрийте http://localhost:3000 у браузері.
+4. Збірка для продакшену
+   npm run build
+   npm start
 
-## Learn More
+📡 API
+Проєкт використовує публічне API:
 
-To learn more about Next.js, take a look at the following resources:
+text
+https://campers-api.goit.study
+Ендпоінти:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+GET /campers — отримання списку кемперів
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+GET /campers/{id} — отримання детальної інформації
 
-## Deploy on Vercel
+🤝 Автор
+Ruslan Kirvas
+GitHub
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📄 Ліцензія
+Цей проєкт створено в навчальних цілях.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+text
+
+---
+
+## 🎯 Що можна додати (за бажанням)
+
+| Розділ                  | Опис                            |
+| :---------------------- | :------------------------------ |
+| **Скріншоти**           | Додати фото сторінок            |
+| **Посилання на деплой** | Живе посилання на Vercel        |
+| **Плани на майбутнє**   | Адаптивність, додаткові фільтри |
+
+---
+
+## ✅ Як додати README.md
+
+1. Створи файл `README.md` у корені проєкту.
+2. Скопіюй текст вище.
+3. Збережи файл.
+4. Запуши на GitHub:
+
+```bash
+git add README.md
+git commit -m "Додано README.md"
+git push origin main
+```
