@@ -1,5 +1,5 @@
 .vehicleDetails {
-  max-width: 650px;
+  /* max-width: 650px; */
   padding: 24px;
   background-color: var(--color-background-light);
   border-radius: 16px;
@@ -16,7 +16,6 @@
 .detailsGrid {
   display: flex;
   flex-direction: column;
-  gap: 8px;
 
   flex-shrink: 0;
 }
@@ -28,15 +27,16 @@
   padding: 0 auto;
 }
 
-.detailRow:last-child {
+/* .detailRow:last-child {
   border-bottom: none;
-}
+} */
 
 .label {
   font-size: 16px;
   line-height: 1.5;
   font-weight: var(--font-weight-medium);
   color: var(--color-text-heading);
+  margin-bottom: 8px;
 }
 
 .value {
@@ -58,11 +58,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 16px;
 }
 
 .tag {
   padding: 12px 18px;
-  border-radius: 50px;
+  border-radius: 100px;
+
   font-size: 16px;
   line-height: 1.5;
   font-weight: var(--font-weight-medium);
@@ -73,5 +75,4 @@
 
   border: 1px solid var(--color-border);
   text-transform: capitalize;
-  margin-bottom: 16px;
 }

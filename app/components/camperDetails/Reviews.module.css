@@ -1,5 +1,10 @@
 .starEmpty {
-  color: var(--color-border); /* Сірий (#DADDE1) */
+  color: var(--color-border);
+}
+
+.reviewsWrapper {
+  /* max-width: 632px; */
+  width: auto;
 }
 
 .comment {
@@ -10,13 +15,13 @@
 }
 
 /* ===== ЗАГОЛОВОК ===== */
-.title {
+/* .title {
   font-size: 24px;
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-heading);
   margin-bottom: 24px;
   line-height: 1.3;
-}
+} */
 
 /* ===== ЗАГЛУШКА ===== */
 .empty {

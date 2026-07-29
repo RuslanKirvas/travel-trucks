@@ -2,7 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Thumbs } from "swiper/modules";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import Image from "next/image";
 
@@ -27,6 +27,7 @@ interface GalleryProps {
 
 export default function Gallery({ images, name }: GalleryProps) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
+  const mainSwiperRef = useRef<SwiperType | null>(null);
 
   // Фільтруємо — беремо поле original
   const validImages = images
@@ -41,6 +42,12 @@ export default function Gallery({ images, name }: GalleryProps) {
     );
   }
 
+  const handleThumbClick = (index: number) => {
+    if (mainSwiperRef.current) {
+      mainSwiperRef.current.slideTo(index);
+    }
+  };
+
   return (
     <div className={styles.galleryWrapper}>
       {/* Головний слайдер */}
@@ -52,6 +59,9 @@ export default function Gallery({ images, name }: GalleryProps) {
         className={styles.mainSwiper}
         spaceBetween={10}
         slidesPerView={1}
+        onSwiper={(swiper) => {
+          mainSwiperRef.current = swiper;
+        }}
       >
         {validImages.map((src, index) => (
           <SwiperSlide key={index}>
@@ -81,7 +91,10 @@ export default function Gallery({ images, name }: GalleryProps) {
         >
           {validImages.map((src, index) => (
             <SwiperSlide key={index}>
-              <div className={styles.thumbImage}>
+              <div
+                className={styles.thumbImage}
+                onClick={() => handleThumbClick(index)}
+              >
                 <Image
                   src={src}
                   alt={`Мініатюра ${index + 1}`}

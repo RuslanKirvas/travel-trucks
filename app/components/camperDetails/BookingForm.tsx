@@ -85,14 +85,14 @@ export default function BookingForm({ camperId }: BookingFormProps) {
           )}
         </div>
 
-        <div className={styles.field}>
+        {/* <div className={styles.field}>
           <input
             type="date"
             className={`${styles.input} ${errors.date ? styles.inputError : ""}`}
             {...register("date", { required: "Date is required" })}
           />
           {errors.date && <p className={styles.error}>{errors.date.message}</p>}
-        </div>
+        </div> */}
 
         {/* Коментар (опціонально) */}
         {/* <div className={styles.field}>
