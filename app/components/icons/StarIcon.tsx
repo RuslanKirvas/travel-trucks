@@ -1,8 +1,6 @@
-import { IconProps } from "./typs";
+import { IconProps } from './typs';
 
-export const StarIcons = (
-  { size = 15, className = "" }: IconProps, // ← Ось тут ми даємо ім'я!
-) => (
+export const StarIcons = ({ size = 15, className = '' }: IconProps) => (
   <svg
     width={15}
     height={14}

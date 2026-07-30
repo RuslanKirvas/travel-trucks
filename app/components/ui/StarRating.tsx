@@ -1,8 +1,8 @@
-import { StarIcon } from "@/app/components/icons/StarIcon";
+import { StarIcons } from '@/app/components/icons/StarIcon';
 
 interface StarRatingProps {
-  rating: number; // Оцінка (наприклад, 4.5)
-  maxStars?: number; // Максимум зірок (зазвичай 5)
+  rating: number;
+  maxStars?: number;
 }
 
 export default function StarRating({ rating, maxStars = 5 }: StarRatingProps) {
@@ -15,21 +15,23 @@ export default function StarRating({ rating, maxStars = 5 }: StarRatingProps) {
   const stars = [];
 
   for (let i = 0; i < maxStars; i++) {
-    let starColor = "#DADDE1"; // Сірий (за замовчуванням)
+    let starColor = '#DADDE1'; // Сірий (за замовчуванням)
 
     if (i < fullStars) {
-      starColor = "#FFC531"; // Жовтий (повна зірка)
+      starColor = '#FFC531'; // Жовтий (повна зірка)
     } else if (i === fullStars && hasHalfStar) {
-      starColor = "#FFC531"; // Жовтий (половинна зірка)
+      starColor = '#FFC531'; // Жовтий (половинна зірка)
     }
 
+    // stars.push(
+    //   <StarIcons key={i} size={16} className="flex-shrink-0" style={{ color: starColor }} />
+    // );
     stars.push(
-      <StarIcon
+      <StarIcons
         key={i}
         size={16}
-        className="flex-shrink-0"
-        style={{ color: starColor }}
-      />,
+        className={`flex-shrink-0 ${starColor === '#FFC531' ? 'text-yellow-500' : 'text-gray-300'}`}
+      />
     );
   }
 

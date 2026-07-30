@@ -1,6 +1,6 @@
-import { Camper } from "@/app/types/camper";
-import styles from "./HeaderInfo.module.css";
-import { StarIcons, LocationIcon } from "@/app/components/icons/index";
+import { Camper } from '@/app/types/camper';
+import styles from './HeaderInfo.module.css';
+import { StarIcons, LocationIcon } from '@/app/components/icons/index';
 
 interface HeaderInfoProps {
   camper: Camper;
