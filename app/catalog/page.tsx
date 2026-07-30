@@ -1,21 +1,15 @@
-"use client";
+'use client';
+import { Suspense } from 'react';
 
-import { useCampers } from "@/app/hooks/useCampers";
-import CamperCard from "@/app/components/catalog/CamperCard";
-import FilterPanel from "@/app/components/catalog/FilterPanel";
-import styles from "./page.module.css";
+import { useCampers } from '@/app/hooks/useCampers';
+import CamperCard from '@/app/components/catalog/CamperCard';
+import FilterPanel from '@/app/components/catalog/FilterPanel';
+import styles from './page.module.css';
 
-export default function CatalogPage() {
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    isLoading,
-    isError,
-  } = useCampers();
+function CatalogContent() {
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isError } = useCampers();
 
-  const allCampers = data?.pages.flatMap((page) => page.campers) || [];
+  const allCampers = data?.pages.flatMap(page => page.campers) || [];
 
   if (isLoading) return <div className={styles.loader}>Loading...</div>;
   if (isError) return <div className={styles.error}>Error loading data</div>;
@@ -29,7 +23,7 @@ export default function CatalogPage() {
 
         <main className={styles.content}>
           <div className={styles.cards}>
-            {allCampers.map((camper) => (
+            {allCampers.map(camper => (
               <CamperCard key={camper.id} camper={camper} />
             ))}
           </div>
@@ -42,11 +36,7 @@ export default function CatalogPage() {
                 onClick={() => fetchNextPage()}
                 disabled={isFetchingNextPage}
               >
-                {isFetchingNextPage ? (
-                  <span className={styles.spinner}></span>
-                ) : (
-                  "Load More"
-                )}
+                {isFetchingNextPage ? <span className={styles.spinner}></span> : 'Load More'}
 
                 {/* {isFetchingNextPage ? "Loading..." : "Load More"} */}
               </button>
@@ -55,5 +45,13 @@ export default function CatalogPage() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function CatalogPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CatalogContent />
+    </Suspense>
   );
 }
