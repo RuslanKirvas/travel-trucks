@@ -4,8 +4,8 @@
 використанням **Next.js**, **TypeScript** та **TanStack Query**.
 
 🔗 **Жива демонстрація:**
-[https://vercel.com/ruslankirvas-projects/travel-trucks/7XmPGnTcDuwTV4rctira51JnFMbP]  
-📂 **Репозиторій:** [https://github.com/RuslanKirvas/travel-trucks]
+[https://travel-trucks-eight-azure.vercel.app](https://travel-trucks-eight-azure.vercel.app) 📂
+**Репозиторій:** [https://github.com/RuslanKirvas/travel-trucks]
 
 ---
 
